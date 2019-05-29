@@ -11,6 +11,7 @@
     'website': 'https://github.com/OCA/timesheet',
     'depends': [
         'sale_timesheet',
+        'vcls-project',
     ],
     'data': [
         'security/ir.model.access.csv',
