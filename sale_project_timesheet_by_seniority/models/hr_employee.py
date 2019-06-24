@@ -11,8 +11,3 @@ class HrEmployee(models.Model):
     seniority_level_id = fields.Many2one(
         name='Seniority level', comodel_name='hr.employee.seniority.level'
     )
-
-    default_rate_ids = fields.Many2many(
-        'product.template',
-        string = 'Default Rates',
-    )
