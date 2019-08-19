@@ -44,7 +44,8 @@ class AccountAnalyticLine(models.Model):
             # Find a line on the sale order with the same seniority level
             for so_line in so.order_line:
                 line_seniority = so_line.product_id.seniority_level_id
-                if line_seniority == employee.seniority_level_id:
+                #we add the code 00 condition to cover the uniformized rate usecase (i.e. everyone to code with the same rate)
+                if line_seniority == employee.seniority_level_id or line_seniority.code == '00':
                     break
             else:
                 # no line found, create the missing mapped line
