@@ -23,8 +23,6 @@ class SaleOrder(models.Model):
                     ('so_line', 'in', order.order_line.ids),
                     ('amount', '<=', 0.0),
                     ('project_id', '!=', False),
-                    #XXX OCA override
-                    ('stage', 'in', ['invoiceable','invoiced']),
                 ]
                 if order.timesheet_limit_date:
                     domain.append(
