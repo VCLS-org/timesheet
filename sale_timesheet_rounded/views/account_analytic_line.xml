@@ -23,7 +23,7 @@
       <xpath expr="//field[@name='unit_amount']" position="after">
         <br />
         <strong>Rounded: </strong>
-        <field name="unit_amount_rounded" widget="float_time"/>
+        <field name="unit_amount_rounded" widget="float_time" invisible="1"/>
       </xpath>
 
     </field>
