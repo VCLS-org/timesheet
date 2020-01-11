@@ -11,7 +11,7 @@ class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
     def _timesheet_compute_delivered_quantity_domain(self):
-        _logger.info("TS PATH | sale_timesheet_limit_date | sale.order.line | _timesheet_compute_delivered_quantity_domain")
+        #_logger.info("TS PATH | sale_timesheet_limit_date | sale.order.line | _timesheet_compute_delivered_quantity_domain")
         domain = super()._timesheet_compute_delivered_quantity_domain()
         order = self.mapped('order_id')
         if order.timesheet_limit_date:
@@ -26,7 +26,7 @@ class SaleOrderLine(models.Model):
     def _compute_qty_delivered(self):
         """Group lines by sale order to allow application of 'per order'
          domain above"""
-        _logger.info("TS PATH | sale_timesheet_limit_date | sale.order.line | _compute_qty_delivered")
+        #_logger.info("TS PATH | sale_timesheet_limit_date | sale.order.line | _compute_qty_delivered")
         orders = self.mapped('order_id')
         lines_groups = [
             self.filtered(lambda sol: sol.order_id.id == o.id) for o in orders
