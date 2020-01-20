@@ -36,7 +36,7 @@
     <field name="arch" type="xml">
 
       <xpath expr="//field[@name='unit_amount']" position="after">
-        <field name="unit_amount_rounded" string="Quantity rounded" sum="Total quantity rounded" widget="float_time"/>
+        <field name="unit_amount_rounded" invisible="1" string="Quantity rounded" sum="Total quantity rounded" widget="float_time"/>
       </xpath>
 
     </field>
