@@ -11,7 +11,8 @@ class AccountAnalyticLine(models.Model):
 
     @api.model
     def _update_project_soline_mapping(self, vals):
-        employee = None
+        super(AccountAnalyticLine,self)._update_project_soline_mapping(vals)
+        """employee = None
         if 'employee_id' in vals:
             employee = self.env['hr.employee'].browse(vals['employee_id'])
         elif self.env.user.employee_ids:
@@ -64,7 +65,7 @@ class AccountAnalyticLine(models.Model):
                         )
                     ]
                 }
-            )
+            )"""
 
     @api.model
     def create(self, vals):
