@@ -4,6 +4,9 @@
 from odoo import api, models, _
 from odoo.exceptions import UserError
 
+import logging
+_logger = logging.getLogger(__name__)
+
 
 class AccountAnalyticLine(models.Model):
 
@@ -12,6 +15,7 @@ class AccountAnalyticLine(models.Model):
     @api.model
     def _update_project_soline_mapping(self, vals):
         super(AccountAnalyticLine,self)._update_project_soline_mapping(vals)
+        _logger.info("_update_project_soline_mapping OCA {} ".format(vals))
         """employee = None
         if 'employee_id' in vals:
             employee = self.env['hr.employee'].browse(vals['employee_id'])
