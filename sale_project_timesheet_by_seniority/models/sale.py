@@ -15,7 +15,7 @@ class SaleOrder(models.Model):
                 [('id', '=', employee.default_rate_ids[0].id)],
                 limit=1,
             )
-            
+
         if not any_product:
             any_product = self.env['product.product'].search(
                 [('seniority_level_id', '=', employee.seniority_level_id.id,)],
@@ -30,6 +30,7 @@ class SaleOrder(models.Model):
             'order_id': self.id,
             'product_id': any_product.id,
             'product_uom_qty': 0,
+            'sequence':1000,
         })
         so_line.alert_salesman_new_product(employee)
         return so_line
