@@ -12,12 +12,21 @@ class SaleOrder(models.Model):
     def add_product_with_specific_seniority_level(self, employee):
         """Add any product with a specific seniority level ot the order."""
         any_product = self.env['product.product'].search(
-            [('seniority_level_id', '=', employee.seniority_level_id.id,)],
-            limit=1,
-        )
+                [('id', '=', employee.default_rate_ids[0].id)],
+                limit=1,
+            )
+            
+        if not any_product:
+            any_product = self.env['product.product'].search(
+                [('seniority_level_id', '=', employee.seniority_level_id.id,)],
+                limit=1,
+            )
         if not any_product:
             raise UserError(_('No product exists with this seniority level.'))
-        so_line = self.sudo().order_line.create({
+        so_line = self.sudo().with_context(
+            default_company_id=self.company_id.id,
+            force_company=self.company_id.id,
+            ).order_line.create({
             'order_id': self.id,
             'product_id': any_product.id,
             'product_uom_qty': 0,
