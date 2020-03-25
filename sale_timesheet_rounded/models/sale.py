@@ -20,5 +20,5 @@ class SaleOrderLine(models.Model):
     @api.multi
     @api.depends('analytic_line_ids.unit_amount_rounded')
     def _compute_qty_delivered(self):
-        self = self.with_context(timesheet_rounding=True)
+        #self = self.with_context(timesheet_rounding=True)
         super()._compute_qty_delivered()
