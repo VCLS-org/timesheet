@@ -5,7 +5,7 @@
     'name': 'Sale Project Timesheet By Seniority',
     'summary': """
         Automatically map employee and sale order line when timesheeting.""",
-    'version': '12.0.2.0.0',
+    'version': '12.0.3.0.0',
     'license': 'AGPL-3',
     'author': 'Camptocamp SA,Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/timesheet',
